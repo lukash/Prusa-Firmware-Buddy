@@ -45,15 +45,16 @@ Preset = namedtuple('Preset', ['name', 'description', 'cache_variables'])
 @lru_cache()
 def get_dependency(name):
     """Return an installation path of a dependency."""
-    install_dir = Path(
-        bootstrap('--print-dependency-directory', name).stdout.strip())
-    suffix = '.exe' if platform.system() == 'Windows' else ''
-    if name == 'ninja':
-        return install_dir / ('ninja' + suffix)
-    elif name == 'cmake':
-        return install_dir / 'bin' / ('cmake' + suffix)
-    else:
-        return install_dir
+#    install_dir = Path(
+#        bootstrap('--print-dependency-directory', name).stdout.strip())
+#    suffix = '.exe' if platform.system() == 'Windows' else ''
+#    if name == 'ninja':
+#        return install_dir / ('ninja' + suffix)
+#    elif name == 'cmake':
+#        return install_dir / 'bin' / ('cmake' + suffix)
+#    else:
+#        return install_dir
+    return name
 
 
 class CaseInsensitiveEnum(Enum):
