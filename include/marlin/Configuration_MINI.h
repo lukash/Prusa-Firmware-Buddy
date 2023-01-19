@@ -40,7 +40,7 @@
  */
 #define CONFIGURATION_H_VERSION 02010100
 // TODO: this approach no longer works with Marlin 2.1.x
-//#define USE_PRUSA_EEPROM_AS_SOURCE_OF_DEFAULT_VALUES
+#define USE_PRUSA_EEPROM_AS_SOURCE_OF_DEFAULT_VALUES
 
 #ifdef USE_PRUSA_EEPROM_AS_SOURCE_OF_DEFAULT_VALUES
     #include "eeprom_function_api.h"
@@ -1551,17 +1551,15 @@
 #define Z_MIN_POS 0
 #define X_MAX_POS X_BED_SIZE
 #define Y_MAX_POS Y_BED_SIZE
-#ifdef USE_PRUSA_EEPROM_AS_SOURCE_OF_DEFAULT_VALUES
-    #define DEFAULT_Z_MAX_POS 185
-    #define Z_MIN_LEN_LIMIT 1
-    #define Z_MAX_LEN_LIMIT 10000
-    #define Z_MAX_POS (get_z_max_pos_mm())
-#else
-    #define DEFAULT_Z_MAX_POS 185
-    #define Z_MIN_LEN_LIMIT 1
-    #define Z_MAX_LEN_LIMIT 10000
-    #define Z_MAX_POS 185
-#endif
+#define DEFAULT_Z_MAX_POS 185
+#define Z_MIN_LEN_LIMIT 1
+#define Z_MAX_LEN_LIMIT 10000
+#define Z_MAX_POS 185
+//#ifdef USE_PRUSA_EEPROM_AS_SOURCE_OF_DEFAULT_VALUES
+//    #define Z_MAX_POS (get_z_max_pos_mm())
+//#else
+//    #define Z_MAX_POS 185
+//#endif
 
 //#define I_MIN_POS 0
 //#define I_MAX_POS 50
